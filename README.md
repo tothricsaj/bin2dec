@@ -1,6 +1,6 @@
 # Binary to deciaml converter
 
-The idea is from [here](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md)o
+The idea is from [here](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md)
 
 Tier: 1 - Beginner
 
