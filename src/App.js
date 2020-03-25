@@ -7,13 +7,20 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {binary: 0}
+    this.state = {
+      binary: 0,
+      validValue: true,
+    }
     this.handleInput = this.handleInput.bind(this)
     this.convertBinary = this.convertBinary.bind(this)
   }
 
   handleInput(event) {
-    this.setState({binary: event.target.value})
+    if(typeof event.target.value === 'string') {
+      this.setState({...this.state, validValue: false})
+    } else {
+      this.setState({binary: event.target.value, validValue: true})
+    }
   }
 
   convertBinary() {
@@ -26,10 +33,17 @@ class App extends React.Component {
         <h2>Convert binary to decimal</h2>
         <form>
           <input type="text" onChange={this.handleInput} />
-          <div className="ConvertButton" onClick={this.convertBinary}>Convert</div>
+
+          
+          {
+            this.state.validValue
+            ? <div className="ConvertButton" onClick={this.convertBinary}>Convert</div>  
+            : <p>Type properly value</p>
+          }
         </form>
 
         <p>{this.state.binary}</p>
+        <p>{typeof this.state.binary}</p>
       </div>
     );
   }
