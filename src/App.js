@@ -23,9 +23,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h2>Convert binary to decimal</h2>
         <form>
           <input type="text" onChange={this.handleInput} />
-          <div onClick={this.convertBinary}>Convert</div>
+          <div className="ConvertButton" onClick={this.convertBinary}>Convert</div>
         </form>
 
         <p>{this.state.binary}</p>
