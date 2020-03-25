@@ -1,4 +1,5 @@
 import React from 'react';
+import Bin2dec from './service/Bin2dec.js'
 import './App.css';
 
 class App extends React.Component {
@@ -8,10 +9,15 @@ class App extends React.Component {
 
     this.state = {binary: 0}
     this.handleInput = this.handleInput.bind(this)
+    this.convertBinary = this.convertBinary.bind(this)
   }
 
   handleInput(event) {
     this.setState({binary: event.target.value})
+  }
+
+  convertBinary() {
+    this.setState({binary: Bin2dec(this.state.binary)})
   }
 
   render() {
@@ -19,6 +25,7 @@ class App extends React.Component {
       <div className="App">
         <form>
           <input type="text" onChange={this.handleInput} />
+          <div onClick={this.convertBinary}>Convert</div>
         </form>
 
         <p>{this.state.binary}</p>
