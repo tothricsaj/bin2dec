@@ -4,6 +4,7 @@ test('Bin2dec', () => {
 
     expect(typeof Bin2dec('0')).toBe('number')
 
+    expect(Bin2dec(10)).toBe(2)
     expect(Bin2dec('0')).toBe(0)
     expect(Bin2dec('1')).toBe(1)
     expect(Bin2dec('10')).toBe(2)
