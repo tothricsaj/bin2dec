@@ -8,6 +8,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      dec: 0,
       binary: 0,
       validValue: true,
     }
@@ -16,15 +17,16 @@ class App extends React.Component {
   }
 
   handleInput(event) {
-    if(typeof event.target.value === 'string') {
-      this.setState({...this.state, validValue: false})
+    let regex = /[a-zA-Z]/g
+    if(regex.test(event.target.value)) {
+      this.setState({...this.state, validValue: false, binary: event.target.value})
     } else {
       this.setState({binary: event.target.value, validValue: true})
     }
   }
 
   convertBinary() {
-    this.setState({binary: Bin2dec(this.state.binary)})
+    this.setState({...this.state, dec: Bin2dec(this.state.binary)})
   }
 
   render() {
@@ -42,7 +44,7 @@ class App extends React.Component {
           }
         </form>
 
-        <p>{this.state.binary}</p>
+        <p>{this.state.dec}</p>
         <p>{typeof this.state.binary}</p>
       </div>
     );
