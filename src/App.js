@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   handleInput(event) {
-    let regex = /[a-zA-Z]/g
+    let regex = /[a-zA-Z2-9]/g
     if(regex.test(event.target.value)) {
       this.setState({...this.state, validValue: false, binary: event.target.value})
     } else {
